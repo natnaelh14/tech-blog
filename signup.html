@@ -2,13 +2,13 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Tech Blog</title>
+    <title>Log In</title>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style-signup.css" />
   </head>
 
   <body>
@@ -50,32 +50,30 @@
       </nav>
     </header>
     <main>
-      <section class='saved-lists'>
-        <article class="message is-warning">
-          <div class="message-header">
-            <p>TITLE</p>
-            <p>Posted by natnael on 7/27/2021</p>
-            <button class="delete" aria-label="delete"></button>
-          </div>
-          <div class="message-body">This is a text. this is a text. this is a text.</div>
-        </article>
-        <article class="message is-warning">
-          <div class="message-header">
-            <p>TITLE</p>
-            <p>Posted by natnael on 7/27/2021</p>
-            <button class="delete" aria-label="delete"></button>
-          </div>
-          <div class="message-body">This is a text. this is a text. this is a text.</div>
-        </article>
-        <article class="message is-warning">
-          <div class="message-header">
-            <p>TITLE</p>
-            <p>Posted by natnael on 7/27/2021</p>
-            <button class="delete" aria-label="delete"></button>
-          </div>
-          <div class="message-body">This is a text. this is a text. this is a text.</div>
-        </article>
-      </section>
+        <section class="login-box">
+            <div class="hero-body">
+                <div class="container">
+                    <div class="column is-5 is-offset-2">
+                        <h3 class="title has-text-black">Create Account</h3>
+                        <div class="box">
+                            <form>
+                                <div class="field">
+                                    <div class="control">
+                                        <input class="input is-large" type="email" placeholder="Your Email" autofocus="">
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="control">
+                                        <input class="input is-large" type="password" placeholder="Your Password">
+                                    </div>
+                                </div>
+                                <button class="button is-block is-info is-large is-fullwidth">Register<i class="fa fa-sign-in" aria-hidden="true"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
   </body>
 </html>

@@ -8,13 +8,13 @@ header nav {
 }
 
 .input-box {
-    width: 500px;
+    width: 1000px;
     border: 5px solid #34495e;
     padding: 40px;
+    margin-top: 50px;
 }
 
 main {
     display: flex;
     justify-content: center;
-    align-items: center;
 }
