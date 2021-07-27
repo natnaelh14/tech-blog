@@ -14,6 +14,13 @@ header nav {
     margin-top: 50px;
 }
 
+.input-box p {
+    font-size: 40px;
+    text-align: center;
+    font-weight: bold;
+    color: #34495e;
+}
+
 main {
     display: flex;
     justify-content: center;
