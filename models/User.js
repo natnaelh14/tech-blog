@@ -1,4 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
+const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
 class User extends Model {}
@@ -31,13 +32,10 @@ User.init(
       beforeCreate: async (newUserData) => {
         // In this case, we are taking the user's email address, and making all letters lower case before adding it to the database.
         newUserData.email = await newUserData.email.toLowerCase();
+        newUserData.password = await bcrypt.hash(newUserData.password, 10);
         return newUserData;
       },
-      // Here, we use the beforeUpdate hook to make all of the characters lower case in an updated email address, before updating the database.
-      beforeUpdate: async (updatedUserData) => {
-        updatedUserData.email = await updatedUserData.email.toLowerCase();
-        return updatedUserData;
-      },
+
     },
     sequelize,
     timestamps: false,
