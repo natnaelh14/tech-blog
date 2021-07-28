@@ -1,0 +1,30 @@
+{{#each Blogs}}
+<div class='test'>
+        <section class = 'button-box'>
+          <button type="button" class="formButton" id={{user_id}}>This is text area</button>
+        </section>      
+        <section class = 'main-box' id='test-2'>
+          <section class='input-box'>
+            <p>Edit Post</p>
+            <div class="field">
+              <label class="label">Title</label>
+              <div class="control">
+                <input class="input" type="text" placeholder="Text input">
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">Content</label>
+              <div class="control">
+                <textarea class="textarea" placeholder="Textarea"></textarea>
+              </div>
+            </div>          
+            <div class="field is-grouped">
+              <div class="control">
+                <button class="button is-link">Update</button>
+                <button class="button is-link">Delete</button>
+              </div>
+            </div>
+          </section> 
+        </section>
+      </div>
+      {{#each}}

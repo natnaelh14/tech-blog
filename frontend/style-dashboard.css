@@ -20,13 +20,17 @@ header nav {
     margin-top: 50px;
 }
 
-.show {
+.main-box {
+    display: block;
+}
+
+/* .show {
     display: block;
 }
 
 .hide {
     display: none;
-}
+} */
 
 .input-box p {
     font-size: 40px;
