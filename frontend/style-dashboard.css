@@ -18,7 +18,14 @@ header nav {
     border: 5px solid #34495e;
     padding: 40px;
     margin-top: 50px;
-    display:none;
+}
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
 }
 
 .input-box p {
