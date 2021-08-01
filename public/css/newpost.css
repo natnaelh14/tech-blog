@@ -1,0 +1,27 @@
+html, body {
+    background-color: #EAE7DC;
+    color: #34495e;
+}
+
+header nav {
+    background-color: #DBC3A5
+}
+
+.input-box {
+    width: 1000px;
+    border: 5px solid #34495e;
+    padding: 40px;
+    margin-top: 50px;
+}
+
+.input-box p {
+    font-size: 40px;
+    text-align: center;
+    font-weight: bold;
+    color: #34495e;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+}

@@ -1,0 +1,19 @@
+html, body {
+    background-color: #EAE7DC;
+}
+
+header nav {
+    background-color: #DBC3A5
+}
+
+.login-box {
+    border: 5px solid #34495e;
+    width: 1000px;
+    margin-top: 50px;
+    text-align: center
+}
+
+main {
+    display: flex;
+    justify-content: center;
+}

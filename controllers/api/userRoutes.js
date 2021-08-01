@@ -12,7 +12,7 @@ router.post('/login', async (req, res) => {
         res.status(404).json({ message: 'Login failed. Please try again!' });
         return;
       }
-      // use `bcrypt.compare()` to compare the provided password and the hashed password
+      use `bcrypt.compare()` to compare the provided password and the hashed password
       const validPassword = await bcrypt.compare(
         req.body.password,
         userData.password
