@@ -25,13 +25,9 @@ User.init(
     },
   },
   {
-    //Hooks are methods that hook to a model.
-    // When adding hooks via the init() method, they go below
     hooks: {
-      // Use the beforeCreate hook to work with data before a new instance is created
       beforeCreate: async (newUserData) => {
-        // In this case, we are taking the user's email address, and making all letters lower case before adding it to the database.
-        newUserData.email = await newUserData.email.toLowerCase();
+        newUserData.username = await newUserData.username.toLowerCase();
         newUserData.password = await bcrypt.hash(newUserData.password, 10);
         return newUserData;
       },
@@ -44,5 +40,9 @@ User.init(
     modelName: 'user',
   }
 );
+
+User.prototype.validPassword = async function (password) {
+  return await bcrypt.compare(password, this.password);
+};
 
 module.exports = User;

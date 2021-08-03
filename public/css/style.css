@@ -1,0 +1,13 @@
+html, body {
+    background-color: #EAE7DC;
+}
+
+header nav {
+    background-color: #DBC3A5
+}
+
+main {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}

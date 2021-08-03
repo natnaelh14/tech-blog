@@ -1,8 +1,8 @@
 const router = require('express').Router();
 const { Blog } = require('../models/');
-const auth = require('../utils/auth');
+const withAuth = require('../utils/auth');
 
-router.get('/', auth, async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   try {
     const postData = await Blog.findAll({
       where: {
@@ -12,31 +12,27 @@ router.get('/', auth, async (req, res) => {
 
     const posts = postData.map((post) => post.get({ plain: true }));
 
-    res.render('homepageloggedin', {
-      layout: 'dashboard',
+    res.render('homepage', {
       posts,
+      logged_in: true,
     });
   } catch (err) {
     res.redirect('login');
   }
 });
 
-router.get('/new', auth, (req, res) => {
-  res.render('new-post', {
-    layout: 'dashboard',
-  });
+router.get('/new-post', withAuth, (req, res) => {
+  res.render('new-post');
 });
 
-router.get('/update/:id', auth, async (req, res) => {
+router.get('/update/:id', withAuth, async (req, res) => {
   try {
     const postData = await Blog.findByPk(req.params.id);
-
     if (postData) {
       const post = postData.get({ plain: true });
-
       res.render('edit-post', {
-        layout: 'dashboard',
         post,
+        logged_in: true,
       });
     } else {
       res.status(404).end();

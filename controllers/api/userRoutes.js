@@ -1,33 +1,22 @@
 const router = require('express').Router();
-const bcrypt = require('bcrypt');
 const User = require('../../models/User');
 
-// Added comments describing the functionality of this `login` route
 router.post('/login', async (req, res) => {
     try {
-      // we search the DB for a user with the provided username
       const userData = await User.findOne({ where: { username: req.body.username } });
       if (!userData) {
-        // the error message shouldn't specify if the login failed because of wrong email or password
         res.status(404).json({ message: 'Login failed. Please try again!' });
         return;
       }
-      use `bcrypt.compare()` to compare the provided password and the hashed password
-      const validPassword = await bcrypt.compare(
-        req.body.password,
-        userData.password
-      );
-      // if they do not match, return error message
+      const validPassword = await userData.validPassword(req.body.password);
       if (!validPassword) {
         res.status(400).json({ message: 'Login failed. Please try again!' });
         return;
       }
       req.session.save(() => {
-        req.session.userId = user.id;
-        req.session.username = user.username;
-        req.session.loggedIn = true;
-    // if they do match, return success message
-        res.json({ user, message: 'You are now logged in!' });
+        req.session.user_id = userData.id;
+        req.session.logged_in = true;
+        res.json({ user: userData, message: 'You are now logged in!' });
       });
     } catch (err) {
       res.status(500).json(err);
@@ -42,11 +31,10 @@ router.post('/login', async (req, res) => {
       });
   
       req.session.save(() => {
-        req.session.userId = newUser.id;
-        req.session.username = newUser.username;
-        req.session.loggedIn = true;
-  
+        req.session.user_id = userData.id;
+        req.session.logged_in = true;  
         res.json(newUser);
+        res.status(200).json({ user: newUser.username, message: 'You are now logged in!' });
       });
     } catch (err) {
       res.status(500).json(err);
@@ -54,7 +42,7 @@ router.post('/login', async (req, res) => {
   });
 
 router.post('/logout', (req, res) => {
-    if (req.session.loggedIn) {
+    if (req.session.logged_in) {
       req.session.destroy(() => {
         res.status(204).end();
       });
