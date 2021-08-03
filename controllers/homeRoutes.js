@@ -1,39 +1,45 @@
-const router = require('express').Router();
-const { Blog } = require('../models/');
-const withAuth = require('../utils/auth');
+const router = require("express").Router();
+const { Blog, User } = require("../models/");
+const withAuth = require("../utils/auth");
 
-// get all posts for homepage
-router.get('/', withAuth, async (req, res) => {
+router.get("/", withAuth, async (req, res) => {
   try {
-    const blogData = await Blog.findAll({
+    const postData = await Blog.findAll({
       where: {
         user_id: req.session.user_id,
       },
     });
-    const blogs = blogData.map((blog) => blog.get({ plain: true }));
-    res.render('homepage', { 
-      blogs,
-      logged_in: true, 
+    const userData = await User.findAll({
+      where: {
+        id: req.session.user_id,
+      },
+    });
+    const user = userData.get({ plain: true });
+    const posts = postData.map((post) => post.get({ plain: true }));
+    res.render("homepage", {
+      posts,
+      user,
+      logged_in: true,
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-router.get('/login', (req, res) => {
+router.get("/login", (req, res) => {
   if (req.session.logged_in) {
-    res.redirect('/');
+    res.redirect("/");
     return;
   }
-  res.render('login');
+  res.render("login");
 });
 
-router.get('/signup', (req, res) => {
+router.get("/signup", (req, res) => {
   if (req.session.logged_in) {
-    res.redirect('/');
+    res.redirect("/");
     return;
   }
-  res.render('signup');
+  res.render("signup");
 });
 
 module.exports = router;
