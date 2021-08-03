@@ -4,14 +4,14 @@ const loginFunction = async function(e) {
     const username = document.querySelector('#username-input');
     const password = document.querySelector('#password-input');
   
-    const response = await fetch('/api/user/login', {
+    const response = await fetch('/api/login', {
       method: 'POST',
       body: JSON.stringify({username, password}),
       headers: { 'Content-Type': 'application/json' },
     });
   
     if (response.ok) {
-      document.location.replace('/dashboard');
+      document.location.replace('/');
     } else {
       alert('Failed to login');
     }

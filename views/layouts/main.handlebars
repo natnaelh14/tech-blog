@@ -5,10 +5,7 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
     <title>Tech Blog</title>
     <link rel='icon' href='/img/logo.png' type='image/x-icon' />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css"/>
   </head>
   <body>
     <header>
@@ -39,7 +36,10 @@
           <div class="navbar-end">
             <div class="navbar-item">
               <div class="buttons">
-                <a class="button is-light" id="logBtn" href="./login.html"> Log in </a>
+                {{#if logged_in}}
+                <a class="button is-light" id="login" href="./login.html"> Log in </a>
+                {{else}}
+                <a class="button is-light" id="logout" > Log in </a>
               </div>
             </div>
           </div>
