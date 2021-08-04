@@ -1,19 +1,19 @@
 const router = require('express').Router();
-const Blog = require('../../models/User');
-const withAuth = require('../../utils/auth');
+const Blog = require('../models/User');
+const withAuth = require('../utils/auth');
 
-
-router.get('/new-post', withAuth, (req, res) => {
-    res.render('new-post');
+router.get('/newpost', withAuth, (req, res) => {
+    res.render('newpost');
   });
-  router.post('/new-post'), async (req, res) => {
+router.post('/new-post'), async (req, res) => {
     try {
+      console.log('AWWWWWWEEEEEEEEEWWWWWWWWWW')
       await Blog.create({
       title: req.session.title,
       content: req.session.content,
       user_id: req.session.user_id,
       });
-    res.redirect('/');
+      res.redirect('/');
     } catch {
       alert('unable to save new post')
       res.status(500).json(err);

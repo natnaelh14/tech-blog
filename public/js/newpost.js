@@ -5,20 +5,20 @@ const newPostHandler = async (event) => {
   const title = document.querySelector("#title-input").value.trim();
   const content = document.querySelector("#content-input").value.trim();
 
-  const response = await fetch("/api/blogs/new-post", {
-    method: "PUT",
-    body: JSON.stringify({
-      title,
-      content,
-    }),
+  const response = await fetch('/new-post', {
+    method: "POST",
+    body: JSON.stringify({title, content}),
     headers: { "Content-Type": "application/json" },
   });
+  console.log(response)
   if (response.ok) {
     document.location.assign("/");
   } else {
-    alert(response.statusText);
+    alert('Failed to save post');
   }
 };
 
-document.querySelector("#create-post").addEventListener("click", newPostHandler);
+window.onload = function () {
+  document.getElementById("create-post").addEventListener("click", newPostHandler);
+}
 

@@ -16,12 +16,11 @@ for (var i = 0; i < elements.length; i++) {
 
 $(document).on("click", ".update-button", function (e) {
   const test = $(this).closest(".text-section").find(".textarea").val();
-  console.log(test);
 });
 
 const updatePostHandler = async (event) => {
   event.preventDefault();
-  const response = await fetch("/api/blogs/update", {
+  const response = await fetch("/update", {
     method: "PUT",
     body: JSON.stringify({
       title,
@@ -40,7 +39,7 @@ document.querySelector("#updateBtn").addEventListener("click", updatePostHandler
 
 const deletePostHandler = async (event) => {
   event.preventDefault();
-  const response = await fetch("/api/blogs/delete", {
+  const response = await fetch("/delete", {
     method: "DELETE",
     body: JSON.stringify({
       title,
