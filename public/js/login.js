@@ -1,15 +1,16 @@
 const loginFunction = async function(e) {
     e.preventDefault();
   
-    const username = document.querySelector('#username-input');
-    const password = document.querySelector('#password-input');
-  
+    const username = document.querySelector('#username-input').value.trim();
+    const password = document.querySelector('#password-input').value.trim();
+    console.log(username);
+    console.log(password);
     const response = await fetch('/login', {
       method: 'POST',
       body: JSON.stringify({username, password}),
       headers: { 'Content-Type': 'application/json' },
     });
-  
+    console.log(response.data)
     if (response.ok) {
       document.location.replace('/');
     } else {

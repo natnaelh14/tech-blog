@@ -9,6 +9,12 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css"
     />
     <link rel="stylesheet" href="style-dashboard.css" />
+    <script type="text/javascript">
+  function updatepost (e) {
+    console.log('click')
+  e.target.innerHTML = 'Updated'
+}
+ </script>
   </head>
 
   <body>
@@ -71,7 +77,7 @@
             </div>          
             <div class="field is-grouped">
               <div class="control">
-                <button class="button is-link update-button" id='update-button'>Update</button>
+                <button class="button is-link update-button" id='update-button' name='test' onclick="updatepost">Update</button>
                 <button class="button is-link delete-button" id='delete-button' >Delete</button>
               </div>
             </div>

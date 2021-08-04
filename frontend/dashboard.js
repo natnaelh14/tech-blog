@@ -1,13 +1,5 @@
 let textButton = document.querySelectorAll("#formButton");
 let form = document.querySelector(".input-box");
-// const singleBlogID = document.querySelector('input[name="post-id"]').value;
-
-
-// $(document).on("click", ".formButton", function (e) {
-//     e.preventDefault();
-//    $(e.currentTarget).toggleClass
-
-// });
 
 var elements = document.getElementsByClassName("formButton");
 // console.log(elements)
@@ -24,6 +16,10 @@ for (var i = 0; i < elements.length; i++) {
   })
 }
 
+//   function updatePost (e) {
+//     console.log('click')
+//   e.target.innerHTML = 'Updated'
+// }
 
 $(document).on("click", ".update-button", function (e) {
   const test = $(this).closest('.text-section').find('.textarea').val();

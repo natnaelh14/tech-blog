@@ -1,6 +1,14 @@
 const router = require('express').Router();
 const User = require('../models/User');
 
+router.get("/login", (req, res) => {
+  if (req.session && req.session.logged_in) {
+    res.redirect("/");
+    return;
+  }
+  res.render("login");
+});
+
 router.post('/login', async (req, res) => {
     try {
       const userData = await User.findOne({ where: { username: req.body.username } });
@@ -23,18 +31,24 @@ router.post('/login', async (req, res) => {
     }
   });
 
+  router.get("/signup", (req, res) => {
+    if (req.session && req.session.logged_in) {
+      res.redirect("/");
+      return;
+    }
+    res.render("signup");
+  });
+  
   router.post('/signup', async (req, res) => {
     try {
       const newUser = await User.create({
         username: req.body.username,
         password: req.body.password,
       });
-  
       req.session.save(() => {
-        req.session.user_id = userData.id;
-        req.session.logged_in = true;  
-        res.json(newUser);
-        res.status(200).json({ user: newUser.username, message: 'You are now logged in!' });
+        req.session.user_id = newUser.id;
+        req.session.logged_in = true;
+        res.json({ user: newUser, message: 'You are now logged in!' });
       });
     } catch (err) {
       res.status(500).json(err);
