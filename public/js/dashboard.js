@@ -4,6 +4,7 @@ let form = document.querySelector(".input-box");
 var elements = document.getElementsByClassName("formButton");
 for (var i = 0; i < elements.length; i++) {
   elements[i].addEventListener("click", function (event) {
+    console.log(event.target.id)
     let test = document.getElementsByClassName("main-box");
     var index = parseInt(event.target.id);
     if (test[index].style.display === "none") {
@@ -14,9 +15,9 @@ for (var i = 0; i < elements.length; i++) {
   });
 }
 
-$(document).on("click", ".update-button", function (e) {
-  const test = $(this).closest(".text-section").find(".textarea").val();
-});
+// $(document).on("click", ".update-button", function (e) {
+//   const test = $(this).closest(".text-section").find(".textarea").val();
+// });
 
 const updatePostHandler = async (event) => {
   event.preventDefault();

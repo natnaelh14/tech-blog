@@ -21,7 +21,7 @@ header nav {
 }
 
 .main-box {
-    display: block;
+    display: none;
 }
 
 /* .show {
