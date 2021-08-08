@@ -1,16 +1,16 @@
 const router = require('express').Router();
-const Blog = require('../models/User');
+const Blog = require('../models/Blog');
 const withAuth = require('../utils/auth');
 
 router.get('/newpost', withAuth, (req, res) => {
-    res.render('newpost');
+    res.render('newpost', {logged_in: true});
   });
-router.post('/new-post'), async (req, res) => {
+router.post('/newpost', withAuth, async (req, res) => {
     try {
       console.log('AWWWWWWEEEEEEEEEWWWWWWWWWW')
       await Blog.create({
-      title: req.session.title,
-      content: req.session.content,
+      title: req.body.title,
+      content: req.body.content,
       user_id: req.session.user_id,
       });
       res.redirect('/');
@@ -18,23 +18,6 @@ router.post('/new-post'), async (req, res) => {
       alert('unable to save new post')
       res.status(500).json(err);
     }  
-  }
-
-  router.get('/update/:id', withAuth, async (req, res) => {
-    try {
-      const postData = await Blog.findByPk(req.params.id);
-      if (postData) {
-        const post = postData.get({ plain: true });
-        res.render('edit-post', {
-          post,
-          logged_in: true,
-        });
-      } else {
-        res.status(404).end();
-      }
-    } catch (err) {
-      res.redirect('login');
-    }
   });
 
   module.exports = router;
