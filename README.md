@@ -18,6 +18,7 @@ To run necessary dependencies, run the following command:
 * npm i
 ## Usage
 ![alt text](/screenshot.png)
+![alt text](/screenshot-01.png)
 ## License
 Copyright (C) 2021 Natnael Haile
 
