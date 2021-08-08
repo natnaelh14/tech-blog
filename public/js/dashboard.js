@@ -36,7 +36,7 @@ const updatePostHandler = async (event) => {
   }
 };
 
-document.querySelector("#updateBtn").addEventListener("click", updatePostHandler);
+document.querySelector(".updateBtn").addEventListener("click", updatePostHandler);
 
 const deletePostHandler = async (event) => {
   event.preventDefault();
@@ -55,4 +55,4 @@ const deletePostHandler = async (event) => {
   }
 };
 
-document.querySelector("#deleteBtn").addEventListener("click", deletePostHandler);
+document.querySelector(".deleteBtn").addEventListener("click", deletePostHandler);
