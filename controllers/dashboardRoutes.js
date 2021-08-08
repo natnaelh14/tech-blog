@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Blog } = require('../models/');
 const withAuth = require('../utils/auth');
 
-router.get('/', withAuth, async (req, res) => {
+router.get('/dashboard', withAuth, async (req, res) => {
   try {
     const postData = await Blog.findAll({
       where: {
@@ -10,7 +10,7 @@ router.get('/', withAuth, async (req, res) => {
       },
     });
     const posts = postData.map((post) => post.get({ plain: true }));
-    res.render('homepage', {
+    res.render('dashboard', {
       posts,
       logged_in: true,
     });
