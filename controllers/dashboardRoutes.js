@@ -43,6 +43,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
           id: req.body.deleteId,
         },
       });
+      res.status(200).end();
     } catch (err) {
       res.status(500).json(err);
     }

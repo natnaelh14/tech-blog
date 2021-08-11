@@ -19,6 +19,8 @@ const updateBtn = document.getElementsByClassName("updateBtn");
 for (var i = 0; i < elements.length; i++) {
   updateBtn[i].addEventListener("click", function (event) {
     console.log("hello", event.target.id);
+    console.log(event.currentTarget.parentNode.parentNode.querySelector('.content-section'))
+    console.log(event.currentTarget.parentNode.parentNode.querySelector('.title-section'))
   });
 }
 
