@@ -4,13 +4,11 @@ let form = document.querySelector(".input-box");
 var elements = document.getElementsByClassName("formButton");
 for (var i = 0; i < elements.length; i++) {
   elements[i].addEventListener("click", function (event) {
-    console.log(event.target.id);
-    let test = document.getElementsByClassName("main-box");
     var index = parseInt(event.target.id);
-    if (test[index].style.display === "none") {
-      test[index].style.display = "block";
+    if (document.getElementById('edit-' + index).style.display !== "block") {
+      document.getElementById('edit-' + index).style.display = "block";
     } else {
-      test[index].style.display = "none";
+      document.getElementById('edit-' + index).style.display = "none";
     }
   });
 }
