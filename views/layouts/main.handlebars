@@ -38,9 +38,10 @@
             <div class="navbar-item">
               <div class="buttons">
                 {{#if logged_in}}
-                <a class="button is-light" id="logout" > Log out </a>
+                <a class="button is-success is-static is-rounded" > {{user.firstName}} {{user.lastName}}</a>
+                <a class="button is-danger is-rounded" id="logout" > Log out </a>
                 {{else}}
-                <a class="button is-light" href="./login"> Log in </a>
+                <a class="button is-info is-rounded" href="./login"> Log in </a>
                 {{/if}}
               </div>
             </div>

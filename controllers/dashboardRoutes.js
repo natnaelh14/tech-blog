@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Blog } = require('../models/');
+const { Blog, User } = require('../models/');
 const withAuth = require('../utils/auth');
 
 router.get('/dashboard', withAuth, async (req, res) => {
@@ -9,9 +9,16 @@ router.get('/dashboard', withAuth, async (req, res) => {
         user_id: req.session.user_id,
       },
     });
+    const userData = await User.findOne({
+      where: {
+        id: req.session.user_id,
+      },
+    });
+    const user = userData.get({ plain: true });
     const posts = postData.map((post) => post.get({ plain: true }));
     res.render('dashboard', {
       posts,
+      user,
       logged_in: true,
     });
   } catch (err) {

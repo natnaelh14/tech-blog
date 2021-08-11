@@ -1,23 +1,29 @@
-const router = require('express').Router();
-const Blog = require('../models/Blog');
-const withAuth = require('../utils/auth');
+const router = require("express").Router();
+const { Blog, User } = require("../models/");
+const withAuth = require("../utils/auth");
 
-router.get('/newpost', withAuth, (req, res) => {
-    res.render('newpost', {logged_in: true});
+router.get("/newpost", withAuth, async (req, res) => {
+  const userData = await User.findOne({
+    where: {
+      id: req.session.user_id,
+    },
   });
-router.post('/newpost', withAuth, async (req, res) => {
-    try {
-      console.log('AWWWWWWEEEEEEEEEWWWWWWWWWW')
-      await Blog.create({
+  const user = userData.get({ plain: true });
+  res.render("newpost", { user, logged_in: true });
+});
+
+router.post("/newpost", withAuth, async (req, res) => {
+  try {
+    await Blog.create({
       title: req.body.title,
       content: req.body.content,
       user_id: req.session.user_id,
-      });
-      res.redirect('/');
-    } catch {
-      alert('unable to save new post')
-      res.status(500).json(err);
-    }  
-  });
+    });
+    res.redirect("/");
+  } catch {
+    alert("unable to save new post");
+    res.status(500).json(err);
+  }
+});
 
-  module.exports = router;
+module.exports = router;
