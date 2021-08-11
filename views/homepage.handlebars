@@ -1,9 +1,10 @@
 {{#each posts as |postList|}}
+<br />
 <article class="media">
   <div class="media-content">
     <div class="content">
       <p>
-        <strong>{{postList.title}}</strong>
+        <strong>{{postList.title}} </strong>
         <br />
         {{postList.content}}
         <br />
@@ -34,22 +35,23 @@
 <br />
 <br />
 <br />
-<h1>COMMENTS</h1>
-  {{#each comments as |commentList|}}
-  <article class="media">
-    <div class="media-content">
-      <div class="content">
-        <p>
-          <strong>Barbara Middleton</strong>
-          <br />
-          {{commentList.comment}}
-          <br />
-          <small><a>Like</a> · <a>Reply</a> · {{format_date commentList.date_created}}</small>
-        </p>
+<h1 class="title is-4" >Comments</h1>
+<div class="is-divider" data-content="OR"></div>
+{{#each comments as |commentList|}}
+    <article class="media">
+      <div class="media-content">
+        <div class="content">
+          <p>
+            <strong>Bob Marley</strong>
+            <br />
+            {{commentList.comment}}
+            <br />
+            <small><a>Like</a> · <a>Reply</a> · {{format_date commentList.date_created}}</small>
+          </p>
+        </div>
       </div>
-    </div>
-  </article>
-  {{/each}}
+    </article>
+{{/each}}
 
 
 <script type="text/javascript" src="/js/homepage.js"></script>

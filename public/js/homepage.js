@@ -17,6 +17,9 @@ for (var i = 0; i < postButtons.length; i++) {
     event.preventDefault();
     const blogId = parseInt(event.target.id);
     const comment = document.getElementById("comment-text-" + blogId).value;
+    if (comment === '') {
+      return;
+    }
     const response = await fetch("/comment", {
       method: "POST",
       body: JSON.stringify({

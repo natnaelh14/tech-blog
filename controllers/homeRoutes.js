@@ -25,6 +25,7 @@ router.get('/', withAuth, async (req, res) => {
      commentData.length > 0
       ? commentData.map((comment) => comment.get({ plain: true }))
       : null;
+    console.log(user)
     res.render("homepage", {
       posts,
       user,

@@ -33,6 +33,7 @@ router.post("/comment", withAuth, async (req, res) => {
       blog_id: req.body.blogId,
       user_iden: req.session.user_id,
     });
+    res.redirect("/");
   } catch {
     alert("unable to save new post");
     res.status(500).json(err);
