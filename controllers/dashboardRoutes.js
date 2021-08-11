@@ -32,6 +32,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
           },
         }
       )
+      res.render('dashboard');
     } catch (err) {
       res.redirect('login');
     }
