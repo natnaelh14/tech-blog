@@ -1,13 +1,51 @@
 {{#each posts as |postList|}}
-<section class="saved-lists">
-  <article class="message is-warning">
-    <div class="message-header">
-      <p>{{postList.title}} </p>
-      <p>Posted on {{format_date postList.date_created}}</p>
+<article class="media">
+  <div class="media-content">
+    <div class="content">
+      <p>
+        <strong>{{postList.title}}</strong>
+        <br />
+        {{postList.content}}
+        <br />
+        <small><a>Like</a> · <a>Reply</a> · {{format_date postList.date_created}}</small>
+        <br />
+          <button class="button is-primary is-rounded commentBtn" id={{postList.id}}>Comments</button>
+      </p>
     </div>
-    <div class="message-body">{{postList.content}}</div>
+  </div>
+</article>
+<section class='comment-section' id='comment-{{postList.id}}'>
+  <article class="media">
+    <div class="media-content">
+      <div class="content">
+        <p>
+          <strong>Barbara Middleton</strong>
+          <br />
+          Lorem ipsum dolor 
+          <br />
+          <small><a>Like</a> · <a>Reply</a> · 3 hrs</small>
+        </p>
+      </div>
+    </div>
+  </article>
+  <article class="media">
+    <div class="media-content">
+      <div class="field">
+        <p class="control">
+          <textarea class="textarea" placeholder="Add a comment..."></textarea>
+        </p>
+      </div>
+      <div class="field">
+        <p class="control">
+          <button class="button">Post comment</button>
+        </p>
+      </div>
+    </div>
   </article>
 </section>
+
 {{/each}}
+
+<script type="text/javascript" src="/js/homepage.js"></script>
 <script type="text/javascript" src="/js/logout.js"></script>
 <link rel="stylesheet" href="/css/style.css" />

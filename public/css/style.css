@@ -13,3 +13,7 @@ main {
 .saved-lists {
     padding: 10px;
 }
+
+.comment-section {
+    display: none;
+}
