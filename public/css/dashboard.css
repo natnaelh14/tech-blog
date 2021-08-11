@@ -22,6 +22,7 @@ header nav {
 
 .main-box {
     display: none;
+    justify-content: center;
 }
 
 .input-box p {

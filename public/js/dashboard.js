@@ -4,39 +4,35 @@ let form = document.querySelector(".input-box");
 var elements = document.getElementsByClassName("formButton");
 for (var i = 0; i < elements.length; i++) {
   elements[i].addEventListener("click", function (event) {
-    var index = parseInt(event.target.id);
-    if (document.getElementById('edit-' + index).style.display !== "block") {
-      document.getElementById('edit-' + index).style.display = "block";
+    const index = parseInt(event.target.id);
+    if (document.getElementById("edit-" + index).style.display !== "flex") {
+      document.getElementById("edit-" + index).style.display = "flex";
     } else {
-      document.getElementById('edit-' + index).style.display = "none";
+      document.getElementById("edit-" + index).style.display = "none";
     }
   });
 }
 
 const updateBtn = document.getElementsByClassName("updateBtn");
 for (var i = 0; i < elements.length; i++) {
-  updateBtn[i].addEventListener("click", function (event) {
-    console.log("hello", event.target.id);
-    console.log(event.currentTarget.parentNode.parentNode.querySelector('.content-section'))
-    console.log(event.currentTarget.parentNode.parentNode.querySelector('.title-section'))
-  });
-}
-
-const deleteBtn = document.getElementsByClassName("deleteBtn");
-for (var i = 0; i < elements.length; i++) {
-  deleteBtn[i].addEventListener(
-    "click", async function (event) {
+  updateBtn[i].addEventListener(
+    "click",
+    async function updatePostHandler(event) {
       event.preventDefault();
-      const deleteId = event.target.id;
-      const response = await fetch("/delete", {
-        method: "DELETE",
+      const updateId = parseInt(event.target.id);
+      const content = document.getElementById("content-" + updateId).value;
+      const title = document.getElementById("title-" + updateId).value;
+      const response = await fetch("/update", {
+        method: "PUT",
         body: JSON.stringify({
-          deleteId,
+          title,
+          content,
+          updateId,
         }),
         headers: { "Content-Type": "application/json" },
       });
       if (response.ok) {
-        document.location.assign("/");
+        document.location.assign("/dashboard");
       } else {
         alert(response.statusText);
       }
@@ -44,22 +40,22 @@ for (var i = 0; i < elements.length; i++) {
   );
 }
 
-const updatePostHandler = async (event) => {
-  event.preventDefault();
-  console.log("Hellloooowwww");
-  const response = await fetch("/update", {
-    method: "PUT",
-    body: JSON.stringify({
-      title,
-      content,
-    }),
-    headers: { "Content-Type": "application/json" },
+const deleteBtn = document.getElementsByClassName("deleteBtn");
+for (var i = 0; i < elements.length; i++) {
+  deleteBtn[i].addEventListener("click", async function (event) {
+    event.preventDefault();
+    const deleteId = event.target.id;
+    const response = await fetch("/delete", {
+      method: "DELETE",
+      body: JSON.stringify({
+        deleteId,
+      }),
+      headers: { "Content-Type": "application/json" },
+    });
+    if (response.ok) {
+      document.location.assign("/dashboard");
+    } else {
+      alert(response.statusText);
+    }
   });
-  if (response.ok) {
-    document.location.assign("/");
-  } else {
-    alert(response.statusText);
-  }
-};
-
-
+}

@@ -19,22 +19,23 @@ router.get('/dashboard', withAuth, async (req, res) => {
   }
 });
 
- // router.get('/update/:id', withAuth, async (req, res) => {
-  //   try {
-  //     const postData = await Blog.findByPk(req.params.id);
-  //     if (postData) {
-  //       const post = postData.get({ plain: true });
-  //       res.render('edit-post', {
-  //         post,
-  //         logged_in: true,
-  //       });
-  //     } else {
-  //       res.status(404).end();
-  //     }
-  //   } catch (err) {
-  //     res.redirect('login');
-  //   }
-  // });
+ router.put('/update/', withAuth, async (req, res) => {
+    try {
+      Blog.update(
+        {
+          title: req.body.title,
+          content: req.body.content,
+        },
+        {
+          where: {
+            id: req.body.updateId,
+          },
+        }
+      )
+    } catch (err) {
+      res.redirect('login');
+    }
+  });
 
   router.delete('/delete', withAuth, async (req, res) => {
     try {
