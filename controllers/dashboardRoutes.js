@@ -36,4 +36,15 @@ router.get('/dashboard', withAuth, async (req, res) => {
   //   }
   // });
 
+  router.delete('/delete', withAuth, async (req, res) => {
+    try {
+      Blog.destroy({
+        where: {
+          id: req.body.deleteId,
+        },
+      });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
 module.exports = router;

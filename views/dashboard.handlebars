@@ -3,7 +3,7 @@
         <section class = 'button-box'>
           <button type="button" class="formButton" id={{postList.id}}>{{postList.content}}</button>
         </section>      
-        <section class = 'main-box' id='test-2'>
+        <section class = 'main-box' id={{postList.id}}>
           <section class='input-box'>
             <p>Edit Post</p>
             <div class="field">
@@ -20,8 +20,8 @@
             </div>          
             <div class="field is-grouped">
               <div class="control">
-                <button class="button is-link updateBtn" >Update</button>
-                <button class="button is-link deleteBtn" >Delete</button>
+                <button class="button is-link updateBtn" id={{postList.id}}>Update</button>
+                <button class="button is-link deleteBtn" id={{postList.id}}>Delete</button>
               </div>
             </div>
           </section> 

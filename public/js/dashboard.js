@@ -4,7 +4,7 @@ let form = document.querySelector(".input-box");
 var elements = document.getElementsByClassName("formButton");
 for (var i = 0; i < elements.length; i++) {
   elements[i].addEventListener("click", function (event) {
-    console.log(event.target.id)
+    console.log(event.target.id);
     let test = document.getElementsByClassName("main-box");
     var index = parseInt(event.target.id);
     if (test[index].style.display === "none") {
@@ -15,12 +15,38 @@ for (var i = 0; i < elements.length; i++) {
   });
 }
 
-// $(document).on("click", ".update-button", function (e) {
-//   const test = $(this).closest(".text-section").find(".textarea").val();
-// });
+const updateBtn = document.getElementsByClassName("updateBtn");
+for (var i = 0; i < elements.length; i++) {
+  updateBtn[i].addEventListener("click", function (event) {
+    console.log("hello", event.target.id);
+  });
+}
+
+const deleteBtn = document.getElementsByClassName("deleteBtn");
+for (var i = 0; i < elements.length; i++) {
+  deleteBtn[i].addEventListener(
+    "click", async function (event) {
+      event.preventDefault();
+      const deleteId = event.target.id;
+      const response = await fetch("/delete", {
+        method: "DELETE",
+        body: JSON.stringify({
+          deleteId,
+        }),
+        headers: { "Content-Type": "application/json" },
+      });
+      if (response.ok) {
+        document.location.assign("/");
+      } else {
+        alert(response.statusText);
+      }
+    }
+  );
+}
 
 const updatePostHandler = async (event) => {
   event.preventDefault();
+  console.log("Hellloooowwww");
   const response = await fetch("/update", {
     method: "PUT",
     body: JSON.stringify({
@@ -36,23 +62,4 @@ const updatePostHandler = async (event) => {
   }
 };
 
-document.querySelector(".updateBtn").addEventListener("click", updatePostHandler);
 
-const deletePostHandler = async (event) => {
-  event.preventDefault();
-  const response = await fetch("/delete", {
-    method: "DELETE",
-    body: JSON.stringify({
-      title,
-      content,
-    }),
-    headers: { "Content-Type": "application/json" },
-  });
-  if (response.ok) {
-    document.location.assign("/");
-  } else {
-    alert(response.statusText);
-  }
-};
-
-document.querySelector(".deleteBtn").addEventListener("click", deletePostHandler);
