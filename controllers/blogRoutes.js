@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Blog, User } = require("../models/");
+const { Blog, User, Comment } = require("../models/");
 const withAuth = require("../utils/auth");
 
 router.get("/newpost", withAuth, async (req, res) => {
@@ -20,6 +20,19 @@ router.post("/newpost", withAuth, async (req, res) => {
       user_id: req.session.user_id,
     });
     res.redirect("/");
+  } catch {
+    alert("unable to save new post");
+    res.status(500).json(err);
+  }
+});
+
+router.post("/comment", withAuth, async (req, res) => {
+  try {
+    await Comment.create({
+      comment: req.body.comment,
+      blog_id: req.body.blogId,
+      user_iden: req.session.user_id,
+    });
   } catch {
     alert("unable to save new post");
     res.status(500).json(err);

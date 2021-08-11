@@ -17,34 +17,40 @@
 <section class='comment-section' id='comment-{{postList.id}}'>
   <article class="media">
     <div class="media-content">
-      <div class="content">
-        <p>
-          <strong>Barbara Middleton</strong>
-          <br />
-          Lorem ipsum dolor 
-          <br />
-          <small><a>Like</a> · <a>Reply</a> · 3 hrs</small>
-        </p>
-      </div>
-    </div>
-  </article>
-  <article class="media">
-    <div class="media-content">
       <div class="field">
         <p class="control">
-          <textarea class="textarea" placeholder="Add a comment..."></textarea>
+          <textarea class="textarea" id='comment-text-{{postList.id}}' placeholder="Add a comment..."></textarea>
         </p>
       </div>
       <div class="field">
         <p class="control">
-          <button class="button">Post comment</button>
+          <button class="button postBtn" id={{postList.id}} >Post comment</button>
         </p>
       </div>
     </div>
   </article>
 </section>
-
 {{/each}}
+<br />
+<br />
+<br />
+<h1>COMMENTS</h1>
+  {{#each comments as |commentList|}}
+  <article class="media">
+    <div class="media-content">
+      <div class="content">
+        <p>
+          <strong>Barbara Middleton</strong>
+          <br />
+          {{commentList.comment}}
+          <br />
+          <small><a>Like</a> · <a>Reply</a> · {{format_date commentList.date_created}}</small>
+        </p>
+      </div>
+    </div>
+  </article>
+  {{/each}}
+
 
 <script type="text/javascript" src="/js/homepage.js"></script>
 <script type="text/javascript" src="/js/logout.js"></script>
