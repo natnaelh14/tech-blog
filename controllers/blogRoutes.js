@@ -2,6 +2,7 @@ const router = require("express").Router();
 const { Blog, User, Comment } = require("../models/");
 const withAuth = require("../utils/auth");
 
+//route directs to new post page.
 router.get("/newpost", withAuth, async (req, res) => {
   const userData = await User.findOne({
     where: {
@@ -11,7 +12,7 @@ router.get("/newpost", withAuth, async (req, res) => {
   const user = userData.get({ plain: true });
   res.render("newpost", { user, logged_in: true });
 });
-
+//route creates a new blog post in database
 router.post("/newpost", withAuth, async (req, res) => {
   try {
     const userData = await User.findOne({
@@ -32,7 +33,7 @@ router.post("/newpost", withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
-
+//route creates a new comment in database
 router.post("/comment", withAuth, async (req, res) => {
   try {
     const userData = await User.findOne({

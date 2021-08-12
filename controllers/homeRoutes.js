@@ -2,6 +2,7 @@ const router = require("express").Router();
 const { Blog, User, Comment } = require("../models/");
 const withAuth = require("../utils/auth");
 
+//route directs to homepage page
 router.get('/', withAuth, async (req, res) => {
   try {
     const postData = await Blog.findAll({});

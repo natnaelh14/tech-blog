@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Blog, User } = require('../models/');
 const withAuth = require('../utils/auth');
 
+//route directs to dashboard page
 router.get('/dashboard', withAuth, async (req, res) => {
   try {
     const postData = await Blog.findAll({
@@ -26,6 +27,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
   }
 });
 
+//route updates a blog post
  router.put('/update/', withAuth, async (req, res) => {
     try {
       Blog.update(
@@ -45,6 +47,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
     }
   });
 
+  //route deletes a blog post
   router.delete('/delete', withAuth, async (req, res) => {
     try {
       Blog.destroy({
