@@ -5,6 +5,8 @@ const registerFunction = async function(event) {
     const lastName = document.querySelector('#lastname-input').value.trim();
     const username = document.querySelector('#username-input').value.trim();
     const password = document.querySelector('#password-input').value.trim();
+    
+    if (firstName && lastName && username && password) {
     const response = await fetch('/signup', {
       method: 'POST',
       body: JSON.stringify({firstName, lastName, username, password}),
@@ -15,7 +17,10 @@ const registerFunction = async function(event) {
     } else {
       alert('Unable to sign up');
     }
-  };
+  } else {
+    alert('Unable to sign up');
+  }
+}
   
   document.querySelector('#registerBtn').addEventListener('click', registerFunction);
 
