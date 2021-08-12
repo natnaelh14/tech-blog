@@ -14,9 +14,16 @@ router.get("/newpost", withAuth, async (req, res) => {
 
 router.post("/newpost", withAuth, async (req, res) => {
   try {
+    const userData = await User.findOne({
+      where: {
+        id: req.session.user_id,
+      },
+    });
+    let username = userData.username
     await Blog.create({
       title: req.body.title,
       content: req.body.content,
+      username: username,
       user_id: req.session.user_id,
     });
     res.redirect("/");
@@ -28,10 +35,16 @@ router.post("/newpost", withAuth, async (req, res) => {
 
 router.post("/comment", withAuth, async (req, res) => {
   try {
+    const userData = await User.findOne({
+      where: {
+        id: req.session.user_id,
+      },
+    });
+    let username = userData.username
     await Comment.create({
       comment: req.body.comment,
       blog_id: req.body.blogId,
-      user_iden: req.session.user_id,
+      username: username,
     });
     res.redirect("/");
   } catch {

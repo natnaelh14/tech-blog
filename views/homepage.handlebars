@@ -1,3 +1,4 @@
+<h1 class="title is-3" >Blog Posts</h1>
 {{#each posts as |postList|}}
 <br />
 <article class="media">
@@ -5,6 +6,8 @@
     <div class="content">
       <p>
         <strong>{{postList.title}} </strong>
+        <br />
+         by {{postList.username}}
         <br />
         {{postList.content}}
         <br />
@@ -34,15 +37,14 @@
 {{/each}}
 <br />
 <br />
-<br />
-<h1 class="title is-4" >Comments</h1>
+<h1 class="title is-3" >Comments</h1>
 <div class="is-divider" data-content="OR"></div>
 {{#each comments as |commentList|}}
     <article class="media">
       <div class="media-content">
         <div class="content">
           <p>
-            <strong>Bob Marley</strong>
+            <strong>{{commentList.username}}</strong>
             <br />
             {{commentList.comment}}
             <br />
@@ -52,7 +54,6 @@
       </div>
     </article>
 {{/each}}
-
 
 <script type="text/javascript" src="/js/homepage.js"></script>
 <script type="text/javascript" src="/js/logout.js"></script>

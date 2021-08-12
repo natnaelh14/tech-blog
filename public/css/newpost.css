@@ -1,6 +1,8 @@
 html, body {
     background-color: #EAE7DC;
     color: #34495e;
+    font-family: 'Teko', sans-serif;
+    font-size: 20px;
 }
 
 header nav {
