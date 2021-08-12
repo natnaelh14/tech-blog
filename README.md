@@ -1,8 +1,12 @@
 
 ## TECH BLOG
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+## Deployed Link
+* Heroku Link - http://tech-blognh.herokuapp.com/
+
 ## Description
-In this project, I created a blog site that allows users to have individual accounts. Upon login, user is able to create blog posts and and view previous blog posts. 
+In this project, I created a blog site that allows users to have individual accounts. Upon login, user is able to create blog posts and and blog post by other users. Each user has the ability to comment on other users' post. user can update or delete his/her post anytime. In this project, I utilized the following technologies: Bulma, Node, Express, MySQL, Sequelize, and Handlebars. I appreciate any feedback.
 ## Table of Contents
 * [Installation](#Installation)
 * [Usage](#Usage)
@@ -17,8 +21,9 @@ To run necessary dependencies, run the following command:
 
 * npm i
 ## Usage
-![alt text](/screenshot.png)
-![alt text](/screenshot-01.png)
+![alt text](/img/screenshot-01.png)
+![alt text](/img/screenshot-02.png)
+![alt text](/img/screenshot-03.png)
 ## License
 Copyright (C) 2021 Natnael Haile
 
@@ -29,7 +34,7 @@ Copyright (C) 2021 Natnael Haile
 ## Contributing
 * If you want to contribute to this project, you can fork it. After you make necessary modifications, you can create a pull request.
 ## Tests
-* npm test
+* N/A
 ## Questions
 * If you have any issues, create an issue on the project.
 ## Contact
