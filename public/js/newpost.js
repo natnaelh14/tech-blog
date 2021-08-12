@@ -3,7 +3,9 @@ const newPostHandler = async (event) => {
 
   const title = document.querySelector("#title-input").value.trim();
   const content = document.querySelector("#content-input").value.trim();
-
+  if (title === '' || content === '') {
+    return;
+  }
   await fetch(`/newpost`, {
     method: "POST",
     body: JSON.stringify({

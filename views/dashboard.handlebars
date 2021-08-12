@@ -1,3 +1,6 @@
+<br />
+<h1 class="title is-3 has-text-centered" >Your Blogs</h1>
+<br />
 {{#each posts as |postList| }}
 <div class='test'>
         <section class = 'button-box'>
@@ -20,8 +23,8 @@
             </div>          
             <div class="field is-grouped">
               <div class="control">
-                <button class="button is-link updateBtn" id={{postList.id}}>Update</button>
-                <button class="button is-link deleteBtn" id={{postList.id}}>Delete</button>
+                <button class="button is-link is-rounded updateBtn" id={{postList.id}}>Update</button>
+                <button class="button is-link is-rounded deleteBtn" id={{postList.id}}>Delete</button>
               </div>
             </div>
           </section> 
