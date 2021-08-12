@@ -24,6 +24,10 @@ Comment.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
+    blogName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     blog_id: {
       type: DataTypes.INTEGER,
       references: {

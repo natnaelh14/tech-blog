@@ -36,16 +36,23 @@ router.post("/newpost", withAuth, async (req, res) => {
 //route creates a new comment in database
 router.post("/comment", withAuth, async (req, res) => {
   try {
+    const blogData = await Blog.findOne({
+      where: {
+        id: req.body.blogId,
+      },
+    });
     const userData = await User.findOne({
       where: {
         id: req.session.user_id,
       },
     });
+    let blogName = blogData.title;
     let username = userData.username
     await Comment.create({
       comment: req.body.comment,
       blog_id: req.body.blogId,
       username: username,
+      blogName: blogName,
     });
     res.redirect("/");
   } catch {
