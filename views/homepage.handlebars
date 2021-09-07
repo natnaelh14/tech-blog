@@ -7,7 +7,7 @@
       <p>
         <strong>{{postList.title}} </strong>
         <br />
-         by {{postList.username}}
+         <i>by {{postList.username}}</i>
         <br />
         {{postList.content}}
         <br />
@@ -44,9 +44,9 @@
       <div class="media-content">
         <div class="content">
           <p>
-            <strong>User: {{commentList.username}}</strong>
+            <strong>User: </strong><i>{{commentList.username}}</i>
             <br />
-            <strong>Blog: {{commentList.blogName}}</strong>
+            <strong>Blog: </strong><i>{{commentList.blogName}}</i>
             <br />
             {{commentList.comment}}
             <br />
