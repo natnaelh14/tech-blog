@@ -1,9 +1,10 @@
 
 ## TECH BLOG
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)<br/><br/>
+<img src="https://img.shields.io/github/last-commit/natnaelh14/tech-blog">
 
-## Deployed Link
-* Heroku Link - http://tech-blognh.herokuapp.com/
+## Live Link
+http://tech-blognh.herokuapp.com/
 
 ## Description
 In this project, I created a blog site that allows users to have individual accounts. Upon login, user is able to create blog posts and and blog post by other users. Each user has the ability to comment on other users' post. user can update or delete his/her post anytime. In this project, I utilized the following technologies: Bulma, Node, Express, MySQL, Sequelize, and Handlebars. I appreciate any feedback.
@@ -16,10 +17,9 @@ In this project, I created a blog site that allows users to have individual acco
 * [Questions](#Questions)
 * [Contact](#Contact)
 ## Installation
-
-To run necessary dependencies, run the following command:
-
-* npm i
+    ```
+    npm install
+    ```
 ## Usage
 ![alt text](/img/screenshot-01.png)
 ![alt text](/img/screenshot-02.png)
@@ -34,8 +34,11 @@ Copyright (C) 2021 Natnael Haile
 ## Contributing
 * If you want to contribute to this project, you can fork it. After you make necessary modifications, you can create a pull request.
 ## Tests
-* N/A
+    ```
+    N/A
+    ```
 ## Questions
-* If you have any issues, create an issue on the project.
+* If you have any questions, create an issue on the project.
 ## Contact
-* You can contact me directly at haile.natnael@natnaeldev.com. You can also find more of my work at (https://github.com/natnael14/)
+* You can contact me directly at haile.natnael@natnaeldev.com. 
+* You can also find more of my work at (https://github.com/natnael14/)
