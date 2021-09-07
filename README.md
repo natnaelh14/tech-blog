@@ -17,8 +17,6 @@ In this project, I created a blog site that allows users to have individual acco
 * [Questions](#Questions)
 * [Contact](#Contact)
 ## Installation
-
-To run necessary dependencies, run the following command:
     ```
     npm install
     ```
