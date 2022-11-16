@@ -3,9 +3,6 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)<br/><br/>
 <img src="https://img.shields.io/github/last-commit/natnaelh14/tech-blog">
 
-## Live Link
-http://tech-blognh.herokuapp.com/
-
 ## Description
 In this project, I created a blog site that allows users to have individual accounts. Upon login, user is able to create blog posts and and blog post by other users. Each user has the ability to comment on other users' post. user can update or delete his/her post anytime. In this project, I utilized the following technologies: Bulma, Node, Express, MySQL, Sequelize, and Handlebars. I appreciate any feedback.
 ## Table of Contents
